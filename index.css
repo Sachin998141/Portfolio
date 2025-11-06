@@ -1,12 +1,22 @@
-/* Color Palette: 
-   --dark-bg: #101820; (Very Dark Blue/Black)
-   --primary-color: #3D5A80; (Dark Steel Blue)
-   --secondary-color: #98C1D9; (Light Steel Blue/Cyan)
-   --accent-color: #58FF33; (Neon Green for Hacker Feel)
-   --text-color: #E0FBFC; (Light Text)
-*/
+/* ========================================
+   Professional Portfolio CSS
+   Author: Sachin Kushwaha
+   ======================================== */
 
-/* 1. Global/Reset Styles */
+/* Professional Color Palette */
+:root {
+    --primary-dark: #1a1d29;
+    --secondary-dark: #252936;
+    --accent-blue: #4a90e2;
+    --accent-gold: #f5a623;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border-color: #3a3f52;
+}
+
+/* ========================================
+   1. GLOBAL STYLES & RESET
+   ======================================== */
 * {
     margin: 0;
     padding: 0;
@@ -14,128 +24,102 @@
 }
 
 body {
-    font-family: 'Consolas', 'Courier New', monospace; /* Hacker/Terminal Font */
-    background-color: var(--dark-bg);
-    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1d29 0%, #252936 100%);
+    color: var(--text-primary);
     line-height: 1.6;
-    scroll-behavior: smooth; /* Smoother Content Scroller */
-    background-image: radial-gradient(circle at center, #101820 10%, #080c10 100%);
+    scroll-behavior: smooth;
 }
 
-:root {
-    --dark-bg: #101820;
-    --primary-color: #3D5A80;
-    --secondary-color: #98C1D9;
-    --accent-color: #58FF33;
-    --text-color: #E0FBFC;
-}
-
-/* 2. Typography and Links */
-h1, h2, h3, h4 {
-    color: var(--secondary-color);
-    font-weight: 700;
-}
-
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.8rem; }
-
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #33ff00; /* Brighter neon green */
-}
-
-/* Emphasize BOLD text with accent color */
-strong {
-    color: var(--accent-color);
-}
-
-/* Content Box Styles (Crystal Clear Style) */
-.content-box {
-    background-color: rgba(61, 90, 128, 0.1); /* Slightly transparent dark steel blue */
-    border: 1px solid var(--primary-color);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-top: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.content-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7), 0 0 15px var(--accent-color); /* Neon glow on hover */
-}
-
-/* 3. Navigation Bar */
+/* ========================================
+   2. NAVIGATION BAR
+   ======================================== */
 header {
-    position: fixed; /* Fixed Navigation Bar */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    background: rgba(26, 29, 41, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
-    background-color: rgba(16, 24, 32, 0.95); /* Semi-transparent dark bg */
-    border-bottom: 3px solid var(--primary-color);
     z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--secondary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    letter-spacing: 2px;
 }
 
-.logo span {
-    color: var(--accent-color);
-    font-size: 2.5rem;
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
-    margin-left: 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
     font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: color 0.3s;
+    position: relative;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-    background-color: var(--primary-color);
-    color: var(--text-color);
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-blue);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .resume-btn {
-    background-color: var(--accent-color);
-    color: var(--dark-bg) !important;
-    padding: 8px 15px;
-    border-radius: 50px;
-    font-weight: bold;
-    margin-left: 30px;
-    transition: opacity 0.3s ease, background-color 0.3s ease;
+    background: linear-gradient(135deg, var(--accent-blue), #5ba3ff);
+    color: white !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .resume-btn:hover {
-    opacity: 0.9;
-    background-color: #33ff00;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+.resume-btn::after {
+    display: none;
 }
 
 .hamburger {
-    display: none; /* Hidden on desktop */
+    display: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--accent-color);
+    color: var(--accent-blue);
 }
 
-/* 4. Section Styling */
+/* ========================================
+   3. MAIN CONTENT SECTIONS
+   ======================================== */
 main {
-    padding-top: 80px; /* Offset for fixed header */
+    padding-top: 80px;
 }
 
 .section-content {
@@ -143,408 +127,536 @@ main {
     margin: 0 auto;
     padding: 5rem 5%;
     min-height: 80vh;
-    opacity: 0; /* Initial state for animation */
-    transform: translateY(20px); /* Initial state for animation */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.section-content.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .section-title {
-    font-size: 2rem;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 10px;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    position: relative;
     display: inline-block;
-    color: var(--accent-color);
 }
 
-/* 5. Hero Section */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+    border-radius: 2px;
+}
+
+.section-number {
+    color: var(--accent-gold);
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+/* ========================================
+   4. HERO SECTION
+   ======================================== */
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-height: 90vh;
+    gap: 4rem;
 }
 
-.hero-text h1 {
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px rgba(88, 255, 51, 0.5); /* Subtle neon glow */
-}
-
-.hero-text h1 ** {
-    color: var(--accent-color);
+.hero-text {
+    flex: 1;
 }
 
 .greeting {
-    color: var(--primary-color);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .role-text {
-    color: var(--secondary-color);
     font-size: 1.5rem;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
 }
 
-.cursor {
-    animation: blink 1s step-start infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
+.hero-image {
+    flex: 0 0 350px;
 }
 
 .hero-image img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid var(--accent-color);
-    box-shadow: 0 0 20px rgba(88, 255, 51, 0.8);
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--accent-blue);
 }
 
 .cta-button {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 10px 20px;
-    border: 2px solid var(--accent-color);
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-block;
+    background: linear-gradient(135deg, var(--accent-blue), #5ba3ff);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 20px rgba(74, 144, 226, 0.3);
+    border: none;
+    cursor: pointer;
 }
 
 .cta-button:hover {
-    background-color: var(--accent-color);
-    color: var(--dark-bg);
-    transform: scale(1.05);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(74, 144, 226, 0.5);
 }
 
-/* 6. Summary Section */
-.summary-content {
-    display: flex;
-    flex-direction: column;
+/* ========================================
+   5. CONTENT CARDS
+   ======================================== */
+.content-card {
+    background: var(--secondary-dark);
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   6. SUMMARY SECTION
+   ======================================== */
 .summary-content p {
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
 }
 
 .contact-info {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px dashed var(--primary-color);
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
 }
 
-.contact-info p i {
-    color: var(--accent-color);
-    margin-right: 10px;
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
 }
 
-/* 7. Skills Section */
+.contact-info i {
+    color: var(--accent-blue);
+}
+
+/* ========================================
+   7. SKILLS SECTION
+   ======================================== */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: var(--secondary-dark);
+    border-radius: 15px;
+    padding: 2rem;
+    border-left: 4px solid var(--accent-blue);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.skill-category:hover {
+    transform: translateX(10px);
+    border-color: var(--accent-gold);
 }
 
 .skill-category h4 {
-    margin-bottom: 10px;
-    color: var(--accent-color);
-    border-bottom: 1px dotted var(--primary-color);
-    padding-bottom: 5px;
+    color: var(--accent-blue);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .skill-category ul {
     list-style: none;
-    padding-left: 0;
 }
 
-.skill-category ul li {
-    padding: 5px 0;
-    color: var(--text-color);
+.skill-category li {
+    color: var(--text-secondary);
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
-/* 8. Experience & Projects */
-.experience-entry, .project-card {
-    margin-bottom: 2rem;
+.skill-category li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
 }
 
-.experience-entry h4, .project-card h4 {
-    color: var(--secondary-color);
+/* ========================================
+   8. EXPERIENCE SECTION
+   ======================================== */
+.experience-entry {
+    background: var(--secondary-dark);
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    border-left: 4px solid var(--accent-gold);
+}
+
+.experience-entry h4 {
+    color: var(--accent-blue);
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
 .company {
-    color: var(--primary-color);
+    color: var(--accent-gold);
     font-style: italic;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .experience-entry ul {
-    list-style: square;
-    margin-left: 20px;
+    list-style: none;
 }
 
+.experience-entry li {
+    color: var(--text-secondary);
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.experience-entry li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+/* ========================================
+   9. PROJECTS SECTION
+   ======================================== */
 .projects-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
 }
 
-.project-card:nth-child(odd) {
-    border-left: 5px solid var(--accent-color);
+.project-card {
+    background: var(--secondary-dark);
+    border-radius: 15px;
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.project-card:nth-child(even) {
-    border-right: 5px solid var(--accent-color);
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.2);
+}
+
+.project-card h4 {
+    color: var(--accent-blue);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
 }
 
 .technologies {
-    margin-top: 1rem;
-    color: var(--primary-color);
-    font-size: 0.9rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
 }
 
-.technologies ** {
-    color: var(--secondary-color);
-}
-
-/* 9. Languages & Testimonials */
-.language-content {
-    max-width: 400px;
-    margin-bottom: 4rem;
-}
-
-.language-content h4 {
-    color: var(--secondary-color);
-}
-
+/* ========================================
+   10. TESTIMONIALS SECTION
+   ======================================== */
 .testimonial-carousel {
+    background: var(--secondary-dark);
+    border-radius: 15px;
+    padding: 3rem;
     position: relative;
-    overflow: hidden;
+    margin-top: 2rem;
 }
 
 .testimonial-item {
-    padding: 2rem;
-    text-align: center;
     display: none;
-    transition: opacity 0.5s ease-in-out;
+    text-align: center;
 }
 
 .testimonial-item.active {
     display: block;
-    opacity: 1;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
 .quote {
     font-size: 1.2rem;
+    color: var(--text-secondary);
     font-style: italic;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-    border-bottom: 1px dashed var(--primary-color);
-    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
 }
 
 .author {
-    color: var(--accent-color);
-    font-weight: bold;
-    font-size: 1rem;
+    color: var(--accent-blue);
+    font-weight: 600;
 }
 
 .prev-btn, .next-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
+    background: var(--accent-blue);
     border: none;
-    color: var(--accent-color);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 10;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    color: white;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .prev-btn:hover, .next-btn:hover {
-    color: var(--dark-bg);
-    background-color: var(--accent-color);
+    background: var(--accent-gold);
 }
 
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; }
+.prev-btn { 
+    left: 20px; 
+}
+
+.next-btn { 
+    right: 20px; 
+}
 
 .dots-container {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 2rem;
 }
 
 .dot {
     height: 10px;
     width: 10px;
     margin: 0 5px;
-    background-color: var(--primary-color);
+    background-color: var(--border-color);
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s;
 }
 
 .dot.active {
-    background-color: var(--accent-color);
-    box-shadow: 0 0 10px var(--accent-color);
+    background-color: var(--accent-blue);
+    width: 30px;
+    border-radius: 5px;
 }
 
-/* 10. Contact Section */
+/* ========================================
+   11. CONTACT SECTION
+   ======================================== */
 .contact-container {
-    display: flex;
-    gap: 40px;
+    background: var(--secondary-dark);
+    border-radius: 15px;
     padding: 3rem;
+    margin-top: 2rem;
 }
 
 .contact-container form {
-    flex: 2;
     display: flex;
     flex-direction: column;
-}
-
-.contact-container form p {
-    color: var(--accent-color);
-    margin-bottom: 1rem;
+    gap: 1.5rem;
 }
 
 .contact-container input,
 .contact-container textarea {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid var(--primary-color);
-    background-color: #0b1115; /* Slightly lighter than dark-bg for contrast */
-    color: var(--text-color);
-    border-radius: 4px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: var(--primary-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    font-family: inherit;
 }
 
 .contact-container input:focus,
 .contact-container textarea:focus {
-    border-color: var(--accent-color);
     outline: none;
-    box-shadow: 0 0 5px var(--accent-color);
+    border-color: var(--accent-blue);
 }
 
-.social-links {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    border-left: 1px dashed var(--primary-color);
+.contact-container textarea {
+    resize: vertical;
+    min-height: 150px;
 }
 
-.social-links a {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-}
-
-.social-links i {
-    font-size: 1.5rem;
-    margin-right: 15px;
-    width: 30px;
-    text-align: center;
-}
-
-/* 11. Footer */
+/* ========================================
+   12. FOOTER
+   ======================================== */
 footer {
     text-align: center;
-    padding: 2rem 5%;
-    background-color: var(--dark-bg);
-    border-top: 3px solid var(--primary-color);
-    font-size: 0.9rem;
-    color: var(--primary-color);
+    padding: 2rem;
+    background: var(--primary-dark);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
 }
 
-/* 12. Media Queries (Responsiveness) */
+/* ========================================
+   13. RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet - Medium Devices */
 @media (max-width: 900px) {
     .hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 100px;
-        min-height: auto;
+        padding-top: 50px;
     }
 
-    .hero-text {
-        order: 2;
-        margin-top: 2rem;
+    .hero-text h1 {
+        font-size: 2.5rem;
     }
 
     .hero-image {
-        order: 1;
+        flex: 0 0 250px;
     }
-
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 1.5rem; }
 
     .projects-container {
         grid-template-columns: 1fr;
     }
 
-    .contact-container {
-        flex-direction: column;
-        padding: 2rem;
-    }
-
-    .social-links {
-        padding-left: 0;
-        border-left: none;
-        border-top: 1px dashed var(--primary-color);
-        padding-top: 20px;
-        margin-top: 20px;
+    .section-title {
+        font-size: 2rem;
     }
 }
 
+/* Mobile - Small Devices */
 @media (max-width: 768px) {
     .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
+        position: fixed;
+        top: 70px;
+        left: -100%;
         width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--primary-dark);
         flex-direction: column;
-        background-color: var(--dark-bg);
-        border-top: 1px solid var(--primary-color);
-        height: 0; /* Initial state for hamburger close */
-        overflow: hidden;
-        transition: height 0.3s ease;
+        justify-content: flex-start;
+        padding: 2rem;
+        transition: left 0.3s;
+        gap: 1rem;
     }
 
     .nav-links.open {
-        height: 300px; /* Adjust height based on content */
-        padding: 20px 0;
-    }
-
-    .nav-links a {
-        margin: 10px 0;
-        padding: 10px 5%;
-        border-bottom: 1px dotted var(--primary-color);
-        width: 100%;
-        text-align: center;
-    }
-
-    .resume-btn {
-        margin: 10px auto;
-        width: 80%;
+        left: 0;
     }
 
     .hamburger {
-        display: block; /* Show hamburger menu */
+        display: block;
     }
 
     .section-content {
-        padding: 4rem 5%;
+        padding: 3rem 5%;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .role-text {
+        font-size: 1.2rem;
+    }
+
+    .greeting {
+        font-size: 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-card,
+    .skill-category,
+    .experience-entry,
+    .project-card,
+    .contact-container,
+    .testimonial-carousel {
+        padding: 1.5rem;
+    }
+
+    .quote {
+        font-size: 1rem;
     }
 }
